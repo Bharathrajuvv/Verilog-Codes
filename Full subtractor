@@ -1,4 +1,4 @@
-// Design code half subtractor
+// Design code Full subtractor
 module fullsub(a,b,c,di,bo);
   input a,b,c;
   output di,bo;
@@ -6,7 +6,7 @@ module fullsub(a,b,c,di,bo);
   assign bo=~a&b|~a&c|b&c;
 endmodule
 
-// Test bench code half subtractor
+// Test bench code Full subtractor
 module fullsub_tb();
   reg a,b,c;
   wire di,bo;
