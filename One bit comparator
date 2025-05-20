@@ -1,0 +1,27 @@
+// Design code for one bit comparator
+module two_bit_comp (a,b,e,l,g);
+  input a,b;
+  output l,g,e;
+  assign e = ~a&~b|a&b;
+  assign l = ~a&b;
+  assign g = a&~b;
+endmodule
+
+// Test bench code for one bit comparator
+module two_bit_comp_tb();
+  reg a_tb,b_tb;
+  wire e_tb,g_tb,l_tb;
+  two_bit_comp duv (.a(a_tb),.b(b_tb),.e(e_tb),.l(l_tb),.g(g_tb));
+  initial
+    begin
+      $dumpfile("test.vcd");
+      $dumpvars;
+      a_tb=0;b_tb=0; #10;
+      a_tb=0;b_tb=1; #10;
+      a_tb=1;b_tb=0; #10;
+      a_tb=1;b_tb=1; #10;
+    end
+  initial begin
+    $monitor("time=%0t a=%b b=%b e=%b l=%b g=%b",$time,a_tb,b_tb,e_tb,l_tb,g_tb)
+  end
+endmodule
