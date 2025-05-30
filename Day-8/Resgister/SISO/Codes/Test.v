@@ -18,10 +18,16 @@ module test;
     si=1;
     
     si=1; #5;
+    si=1; #5;
+    si=1; #5;
+    si=1; #5;
+    si=0; #5;
     si=0; #5;
     si=0; #5;
     si=1; #5;
    #200 $finish;
   end
 endmodule
+
+
 
