@@ -7,7 +7,7 @@ module seq_det(input in,clk,rst, output ou);
   
   reg[3:0] sta,nx_sta;
   always@(posedge clk or negedge rst)begin
-    if(!rst)begin
+    if(rst)begin
       sta<=a;
     end
     else
