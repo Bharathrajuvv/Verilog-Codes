@@ -7,7 +7,7 @@ module seq_over(input y,clk,rst, output z);
   parameter e= 5'd5;
   reg [4:0] st,nx_st;
   always@(posedge clk or negedge rst)begin
-    if(!rst)begin
+    if(rst)begin
       st<=a;
     end
     else
