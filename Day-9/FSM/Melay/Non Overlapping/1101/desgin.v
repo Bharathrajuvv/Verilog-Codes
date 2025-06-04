@@ -6,7 +6,7 @@ module seq_det(input y,rst,clk, output z);
   parameter d = 4'd4;
   reg [3:0] sta,nx_state;
   always@(posedge clk or negedge rst)begin
-    if(~rst)begin
+    if(rst)begin
       sta<=y;
     end
     else
