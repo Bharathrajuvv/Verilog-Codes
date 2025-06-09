@@ -1,12 +1,22 @@
-// Desgin code for Single Port Static RAM Memory
-module sin_ram(input clk,rst,wr, input [2:0] addr, input [3:0] x, output reg  [3:0] y);
-  reg [3:0] ram [0:7];
-  always@(posedge clk)begin
-    if(rst==0)
-      y<=4'b0000;
-    else if(wr==1)
-      ram[addr]<=x;
-    else if(wr==0)
-      y<=ram[addr];
-  end
-endmodule
+// Design code for Single Port Static RAM Memory
+module mem(clk,rst,w_r,din,addr,dout);
+
+	input clk,rst,w_r ;
+	input [3:0] din ;
+	input [2:0] addr ;
+	output reg [3:0] dout ;
+
+  reg [3:0] ram [0:7] ;
+	
+	always @ (posedge clk) begin
+		
+      	if(rst==1)
+			dout<=4'b0000;
+		
+     	 else if(w_r==1)  
+			ram[addr] <=din ;
+		
+      	else if(w_r==0)   
+			dout <= ram[addr];
+	end 
+endmodule 
